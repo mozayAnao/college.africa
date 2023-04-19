@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const knex = require("knex");
+require("dotenv").config();
+const config = require("config");
+const knex = require("knex")(config.get("database"));
 const userRoutes = require("./routes/userRoutes");
 const appLinkRoutes = require("./routes/appLinkRoutes");
 
@@ -12,15 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Connect to the database
-const db = knex({
-  client: "mysql2",
-  connection: {
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "college_africa",
-  },
-});
+const db = knex;
 
 //API routes
 app.use("/api/users", userRoutes(db));

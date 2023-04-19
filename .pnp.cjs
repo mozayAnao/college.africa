@@ -28,11 +28,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["bcryptjs", "npm:2.4.3"],\
             ["body-parser", "npm:1.20.2"],\
+            ["config", "npm:3.3.9"],\
             ["cors", "npm:2.8.5"],\
+            ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
             ["knex", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:2.4.2"],\
             ["mysql2", "npm:3.2.3"],\
+            ["uuid", "npm:9.0.0"],\
             ["yup", "npm:1.1.1"]\
           ],\
           "linkType": "SOFT"\
@@ -54,6 +58,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/array-flatten-npm-1.1.1-9d94ad5f1d-a9925bf351.zip/node_modules/array-flatten/",\
           "packageDependencies": [\
             ["array-flatten", "npm:1.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["bcryptjs", [\
+        ["npm:2.4.3", {\
+          "packageLocation": "./.yarn/cache/bcryptjs-npm-2.4.3-32de4957eb-0e80ed852a.zip/node_modules/bcryptjs/",\
+          "packageDependencies": [\
+            ["bcryptjs", "npm:2.4.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -123,11 +136,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["college.africa", "workspace:."],\
+            ["bcryptjs", "npm:2.4.3"],\
             ["body-parser", "npm:1.20.2"],\
+            ["config", "npm:3.3.9"],\
             ["cors", "npm:2.8.5"],\
+            ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
             ["knex", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:2.4.2"],\
             ["mysql2", "npm:3.2.3"],\
+            ["uuid", "npm:9.0.0"],\
             ["yup", "npm:1.1.1"]\
           ],\
           "linkType": "SOFT"\
@@ -147,6 +164,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/commander-npm-9.5.0-993b3f2434-c7a3e27aa5.zip/node_modules/commander/",\
           "packageDependencies": [\
             ["commander", "npm:9.5.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["config", [\
+        ["npm:3.3.9", {\
+          "packageLocation": "./.yarn/cache/config-npm-3.3.9-7e0be6fe2e-2c29e40be2.zip/node_modules/config/",\
+          "packageDependencies": [\
+            ["config", "npm:3.3.9"],\
+            ["json5", "npm:2.2.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -266,6 +293,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/destroy-npm-1.2.0-6a511802e2-0acb300b74.zip/node_modules/destroy/",\
           "packageDependencies": [\
             ["destroy", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dotenv", [\
+        ["npm:16.0.3", {\
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.3-4cc29121dc-afcf03f373.zip/node_modules/dotenv/",\
+          "packageDependencies": [\
+            ["dotenv", "npm:16.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -540,6 +576,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/is-property-npm-1.0.2-6eac53b30e-33b661a369.zip/node_modules/is-property/",\
           "packageDependencies": [\
             ["is-property", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["json5", [\
+        ["npm:2.2.3", {\
+          "packageLocation": "./.yarn/cache/json5-npm-2.2.3-9962c55073-2a7436a933.zip/node_modules/json5/",\
+          "packageDependencies": [\
+            ["json5", "npm:2.2.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1099,6 +1144,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/utils-merge-npm-1.0.1-363bbdfbca-c810954932.zip/node_modules/utils-merge/",\
           "packageDependencies": [\
             ["utils-merge", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["uuid", [\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-9.0.0-46c41e3e43-8dd2c83c43.zip/node_modules/uuid/",\
+          "packageDependencies": [\
+            ["uuid", "npm:9.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

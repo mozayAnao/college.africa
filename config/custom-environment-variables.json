@@ -1,0 +1,13 @@
+{
+  "database": {
+    "connection": {
+      "host": "DB_HOST",
+      "user": "DB_USER",
+      "password": "DB_PASSWORD",
+      "database": "DB_NAME"
+    }
+  },
+  "adminName": "ADMIN_NAME",
+  "adminEmail": "ADMIN_EMAIL",
+  "adminPassword": "ADMIN_PASSWORD"
+}

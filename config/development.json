@@ -1,0 +1,9 @@
+{
+  "database": {
+    "client": "mysql2",
+    "connection": {}
+  },
+  "adminName": "",
+  "adminEmail": "",
+  "adminPassword": ""
+}

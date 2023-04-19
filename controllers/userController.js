@@ -1,4 +1,6 @@
 const { User, validateUser } = require("../models/User");
+const { v4: uuidv4 } = require("uuid");
+const bcrypt = require("bcryptjs");
 
 let db;
 
@@ -32,10 +34,12 @@ async function getUserById(req, res) {
 
 async function createUser(req, res) {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, is_admin, password } = req.body;
+    const id = uuidv4();
+    const passwordHash = await bcrypt.hash(password, 10);
 
     //Create new User object
-    const user = new User(name, email, password);
+    const user = new User(id, name, email, is_admin, passwordHash);
     console.log(user);
 
     await validateUser(user);

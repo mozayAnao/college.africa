@@ -9,5 +9,6 @@
   },
   "adminName": "ADMIN_NAME",
   "adminEmail": "ADMIN_EMAIL",
-  "adminPassword": "ADMIN_PASSWORD"
+  "adminPassword": "ADMIN_PASSWORD",
+  "jwtSecret": "JWT_SECRET"
 }

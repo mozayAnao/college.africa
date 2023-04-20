@@ -20,13 +20,13 @@ class User {
   }
 }
 
-User.prototype.generateAuthToken = function () {
+User.prototype.generateAuthToken = function (user) {
   const token = jwt.sign(
     {
-      id: this.id,
-      name: this.name,
-      email: this.email,
-      is_admin: this.is_admin,
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      is_admin: user.is_admin,
     },
     config.get("jwtSecret"),
     { expiresIn: "1h" }

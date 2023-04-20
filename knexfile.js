@@ -8,7 +8,10 @@ module.exports = {
       database: "college_africa",
     },
     migrations: {
-      directory: "./migrations",
+      directory: "./databse/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
     },
   },
 };

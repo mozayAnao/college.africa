@@ -1,9 +1,15 @@
 {
   "database": {
     "client": "mysql2",
-    "connection": {}
+    "connection": {
+      "host": "",
+      "user": "",
+      "password": "",
+      "database": ""
+    }
   },
   "adminName": "",
   "adminEmail": "",
-  "adminPassword": ""
+  "adminPassword": "",
+  "jwtSecret": ""
 }

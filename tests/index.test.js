@@ -1,7 +1,7 @@
 const app = require("../index");
 const knex = require("knex");
 const knexfile = require("../knexfile");
-const { authenticateUser } = require("../controllers/userController");
+const { authenticateUser } = require("../src/controllers/userController");
 
 // Connect to the test database
 const db = knex(knexfile.test);

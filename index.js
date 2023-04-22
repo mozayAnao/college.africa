@@ -2,8 +2,8 @@ const express = require("express");
 require("dotenv").config();
 const config = require("config");
 const knex = require("knex")(config.get("database"));
-const userRoutes = require("./routes/userRoutes");
-const appLinkRoutes = require("./routes/appLinkRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const appLinkRoutes = require("./src/routes/appLinkRoutes");
 
 //Initialize Epress
 const app = express();

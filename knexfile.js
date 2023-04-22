@@ -1,12 +1,19 @@
+const config = require("config");
+
 module.exports = {
   development: {
-    client: "mysql2",
-    connection: {
-      host: "localhost",
-      user: "root",
-      password: "",
-      database: "college_africa",
+    client: config.get("database").client,
+    connection: config.get("database").connection,
+    migrations: {
+      directory: "./databse/migrations",
     },
+    seeds: {
+      directory: "./database/seeds",
+    },
+  },
+  test: {
+    client: config.get("database").client,
+    connection: config.get("database").connection,
     migrations: {
       directory: "./databse/migrations",
     },

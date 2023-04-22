@@ -6,8 +6,8 @@
     "start": "nodemon index.js",
     "migrate": "yarn knex migrate:latest",
     "seed": "yarn knex seed:run",
-    "test": "jest",
-    "test:int": ""
+    "test": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
+    "test:int": "jest ./test/integration --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

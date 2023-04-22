@@ -1,4 +1,4 @@
-const { User, validateUser } = require("../models/User");
+const { User } = require("../models/User");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcryptjs");
 const validateResponse = require("./types");
@@ -9,6 +9,7 @@ function setDb(database) {
   db = database;
 }
 
+//GET ALL
 async function getAllUsers(req, res) {
   let response = null;
   try {
@@ -26,6 +27,7 @@ async function getAllUsers(req, res) {
   }
 }
 
+//GET BY ID
 async function getUserById(req, res) {
   const id = req.params.id;
   let response = null;
@@ -48,13 +50,10 @@ async function getUserById(req, res) {
   }
 }
 
+//CREATE
 async function createUser(req, res) {
   const { name, email, is_admin, password } = req.body;
   let response = null;
-
-  let result = await db("users").where({ email: email }).select().first();
-  if (result)
-    return res.status(400).json({ error: "This user already exists" });
 
   try {
     //Generate user id
@@ -64,17 +63,25 @@ async function createUser(req, res) {
     const passwordHash = await bcrypt.hash(password, 10);
 
     //Create new User object
-    const user = new User(id, name, email, is_admin, passwordHash);
-    console.log(user);
+    const user = new User({
+      id: id,
+      name: name,
+      email: email,
+      is_admin: is_admin,
+      password: passwordHash,
+    });
 
-    //Validate user input
-    await validateUser(user);
+    await user.validateUser();
 
-    const [insertedId] = await db("users").insert(user);
+    let result = await db("users").where({ email: email }).select().first();
+    if (result)
+      return res.status(400).json({ error: "This user already exists" });
+
+    await db("users").insert(user.user);
 
     response = {
       _msg: "User added successfully",
-      data: { id: insertedId, ...user },
+      data: user.user,
     };
     if (validateResponse(response)) {
       res.status(201).json(response);
@@ -86,6 +93,7 @@ async function createUser(req, res) {
   }
 }
 
+//AUTHENTICATE
 async function authenticateUser(req, res) {
   let response = null;
 
@@ -120,16 +128,22 @@ async function authenticateUser(req, res) {
   }
 }
 
+//UPDATE
 async function updateUser(req, res) {
   const id = req.params.id;
   let response = null;
 
   try {
-    const user = new User(req.body);
+    const user = new User({ id: id, ...req.body });
 
-    const result = await db("users").where({ id: id }).update(user);
+    await user.validateUser();
+
+    const result = await db("users").where({ id: id }).update(user.user);
     if (result) {
-      response = { _msg: "User updated successfully", data: { id, ...user } };
+      response = {
+        _msg: "User updated successfully",
+        data: { id, ...user.user },
+      };
 
       if (validateResponse(response)) {
         res.status(200).json(response);
@@ -144,6 +158,7 @@ async function updateUser(req, res) {
   }
 }
 
+//DELETE
 async function deleteUser(req, res) {
   const id = req.params.id;
   let response = null;

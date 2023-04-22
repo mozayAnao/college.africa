@@ -7,6 +7,7 @@ function setDb(database) {
   db = database;
 }
 
+//GET ALL
 async function getAllAppLinks(req, res) {
   let response = null;
 
@@ -24,6 +25,7 @@ async function getAllAppLinks(req, res) {
   }
 }
 
+//GET BY ID
 async function getAppLinkById(req, res) {
   const id = req.params.id;
   let response = null;
@@ -46,6 +48,7 @@ async function getAppLinkById(req, res) {
   }
 }
 
+//CREATE
 async function createAppLink(req, res) {
   const { name, url } = req.body;
   const icon = req.file.path;
@@ -53,16 +56,16 @@ async function createAppLink(req, res) {
 
   try {
     //Create new AppLink object
-    const appLink = new AppLink(name, icon, url);
+    const appLink = new AppLink({ name: name, icon: icon, url: url });
 
     //Validate user input
-    await validateAppLink(appLink);
+    await appLink.validateAppLink();
 
-    const [insertedId] = await db("app_links").insert(appLink);
+    const [insertedId] = await db("app_links").insert(appLink.appLink);
 
     response = {
       _msg: "App added successfully",
-      data: { id: insertedId, ...appLink },
+      data: { id: insertedId, ...appLink.appLink },
     };
 
     if (validateResponse(response)) {
@@ -75,6 +78,7 @@ async function createAppLink(req, res) {
   }
 }
 
+//UPDATE;
 async function updateAppLink(req, res) {
   const id = req.params.id;
   const { name, url } = req.body;
@@ -83,13 +87,18 @@ async function updateAppLink(req, res) {
 
   try {
     //Create new AppLink object
-    const appLink = new AppLink(name, icon, url);
+    const appLink = new AppLink({ name: name, icon: icon, url: url });
 
-    const result = await db("app_links").where({ id: id }).update(appLink);
+    //Validate user input
+    await appLink.validateAppLink();
+
+    const result = await db("app_links")
+      .where({ id: id })
+      .update(appLink.appLink);
     if (result) {
       response = {
         _msg: `App with ID ${id} updated successfully`,
-        data: { id, ...appLink },
+        data: { id, ...appLink.appLink },
       };
 
       if (validateResponse(response)) {
@@ -105,6 +114,7 @@ async function updateAppLink(req, res) {
   }
 }
 
+//DELETE
 async function deleteAppLink(req, res) {
   const id = req.params.id;
   let response = null;

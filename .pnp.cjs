@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cors", "npm:2.8.5"],\
             ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
+            ["helmet", "npm:6.1.5"],\
             ["jest", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:29.5.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["knex", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:2.4.2"],\
@@ -2005,6 +2006,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cors", "npm:2.8.5"],\
             ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
+            ["helmet", "npm:6.1.5"],\
             ["jest", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:29.5.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["knex", "virtual:40c812790e0569cab98685af4d182abf0e83b8d0540cc4478f05f605b58a0f6ec2df76805775c6c8969747507c20d0b95fe7a410b382a741f121c141cda90d7e#npm:2.4.2"],\
@@ -2927,6 +2929,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/has-unicode-npm-2.0.1-893adb4747-1eab07a743.zip/node_modules/has-unicode/",\
           "packageDependencies": [\
             ["has-unicode", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["helmet", [\
+        ["npm:6.1.5", {\
+          "packageLocation": "./.yarn/cache/helmet-npm-6.1.5-523f0fdda8-58cc8f8715.zip/node_modules/helmet/",\
+          "packageDependencies": [\
+            ["helmet", "npm:6.1.5"]\
           ],\
           "linkType": "HARD"\
         }]\

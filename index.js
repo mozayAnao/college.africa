@@ -1,4 +1,6 @@
 const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
 require("dotenv").config();
 const config = require("config");
 const knex = require("knex")(config.get("database"));
@@ -7,6 +9,15 @@ const appLinkRoutes = require("./src/routes/appLinkRoutes");
 
 //Initialize Epress
 const app = express();
+
+//Exit is JWT Secret key is not set
+if (!config.get("jwtSecret")) {
+  console.error("FATAL ERROR: jwtSecret is not defined");
+  process.exit(1);
+}
+
+app.use(helmet());
+app.use(cors());
 
 //Setup the body-parser middleware
 app.use(express.json());

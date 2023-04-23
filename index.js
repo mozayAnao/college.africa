@@ -10,7 +10,7 @@ const appLinkRoutes = require("./src/routes/appLinkRoutes");
 //Initialize Epress
 const app = express();
 
-//Exit is JWT Secret key is not set
+//Exit if JWT Secret key is not set
 if (!config.get("jwtSecret")) {
   console.error("FATAL ERROR: jwtSecret is not defined");
   process.exit(1);
